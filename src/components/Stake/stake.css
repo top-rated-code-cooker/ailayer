@@ -1,15 +1,52 @@
 .main-radius {
-    border-radius: 10px;
-    border: solid 1px #3d3c4c;
-  }
+  border-radius: 10px;
+  border: solid 1px #3d3c4c;
+}
 
-  .main-div {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    @media (min-width: 768px) {
-        width: 1180px;
-        padding: 1.5rem 0;
-    }
+.main-div {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  @media (min-width: 768px) {
+      width: 1180px;
+      padding: 1.5rem 0;
   }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .modal {
+  background: white;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  outline: none;
+} */
+
+  
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  display: block;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b7c0e4;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
