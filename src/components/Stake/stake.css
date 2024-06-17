@@ -1,0 +1,15 @@
+.main-radius {
+    border-radius: 10px;
+    border: solid 1px #3d3c4c;
+  }
+
+  .main-div {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    @media (min-width: 768px) {
+        width: 1180px;
+        padding: 1.5rem 0;
+    }
+  }
