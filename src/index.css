@@ -59,6 +59,7 @@ html {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
+  font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 .dark-theme .dialog {
@@ -79,10 +80,17 @@ html {
   background-color: rgba(161,174,229,.7);
 }
 
+.bg-primary\/5{
+  background-color: rgba(161,174,229,.05);
+}
+
 .border-primary\/10{
   border-color: rgba(161,174,229,.1);
 }
 
+.border-primary\/20{
+  border-color: rgb(0 0 0/1);
+}
 .border-primary\/30{
   border-color: rgba(161,174,229,.3);
 }
@@ -113,4 +121,59 @@ html {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.h1-selected{
+  background: radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
+}
+
+.bg-\[\#A1AEE5\]\/5{
+  background-color: rgba(161,174,229,.05);
+}
+
+.bg-primary\/10{
+  background-color: rgba(161,174,229,.1);
+}
+
+.text-primary\/70{
+  color:rgba(161,174,229,.7);
+}
+
+.text-primary\/80{
+  color:rgba(161,174,229,.8);
+}
+
+.text-white\/80 {
+  color: hsla(0,0%,100%,.8);
+}
+
+.text-sharp{
+  color: rgb(128 152 255/var(--tw-text-opacity));
+
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 6px;
+  top: -22px;
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.text-primary{
+  color: rgb(161 174 229/var(--tw-text-opacity))
 }

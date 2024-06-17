@@ -51,7 +51,7 @@ body, html {
 
 body {
     color: #fff;
-    background-color: #090808;
+    background-color: rgb(3 5 21/var(--tw-bg-opacity));
 }
 
 @media (max-width: 765px) {

@@ -1,210 +1,209 @@
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
-import logo from "../../assets/images/logo.png";
+import { useRef, useState } from "react";
 import { usePopper } from "react-popper";
 import "./navbar.css";
 import "./responsive.css";
-import axios from "axios";
+// import axios from "axios";
 
-interface NavItemProps {
-  text: string;
-  to: string;
-}
+// interface NavItemProps {
+//   text: string;
+//   to: string;
+// }
 
-function NavItem(props: NavItemProps) {
-  return (
+// function NavItem(props: NavItemProps) {
+//   return (
 
-    <a className="nav-item text-decoration-none font-hind g-bg-text-gradient" href={props.to ?? '#'}>
-      {props.text == "Social Campaign" &&
-        <span className="nav-text nav-special">Epoch 2</span>}
-      <span className="nav-text">{props.text}</span>
-    </a>
-  );
-}
+//     <a className="nav-item text-decoration-none font-hind g-bg-text-gradient" href={props.to ?? '#'}>
+//       {props.text == "Social Campaign" &&
+//         <span className="nav-text nav-special">Epoch 2</span>}
+//       <span className="nav-text">{props.text}</span>
+//     </a>
+//   );
+// }
 
-function MenuItem(props: NavItemProps) {
-  return (
-    <a className="menu-item">
-      <span className="text">{props.text}</span>
-    </a>
-  );
-}
+// function MenuItem(props: NavItemProps) {
+//   return (
+//     <a className="menu-item">
+//       <span className="text">{props.text}</span>
+//     </a>
+//   );
+// }
 
-function GasPopover() {
-  const [visible, setVisible] = useState(false);
-  const referenceElement = useRef(null);
-  const popperElement = useRef(null);
-  const arrowElement = useRef(null);
-  const [feerate, setFeerate] = useState({ hourFee: 0, halfHourFee: 0, fastestFee: 0 });
-  const { styles, attributes } = usePopper(
-    referenceElement.current,
-    popperElement.current,
-    {
-      modifiers: [
-        { name: "arrow", options: { element: arrowElement.current } },
-      ],
-    }
-  );
+// function GasPopover() {
+//   const [visible, setVisible] = useState(false);
+//   const referenceElement = useRef(null);
+//   const popperElement = useRef(null);
+//   const arrowElement = useRef(null);
+//   const [feerate, setFeerate] = useState({ hourFee: 0, halfHourFee: 0, fastestFee: 0 });
+//   const { styles, attributes } = usePopper(
+//     referenceElement.current,
+//     popperElement.current,
+//     {
+//       modifiers: [
+//         { name: "arrow", options: { element: arrowElement.current } },
+//       ],
+//     }
+//   );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(`https://mempool.space/api/v1/fees/recommended`);
-        setFeerate(data);
-      } catch (error) {
-        console.log("Server responded with:", error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const { data } = await axios.get(`https://mempool.space/api/v1/fees/recommended`);
+//         setFeerate(data);
+//       } catch (error) {
+//         console.log("Server responded with:", error);
+//       }
+//     };
 
-    fetchData(); // fetch data immediately
-    const intervalId = setInterval(fetchData, 5000); // fetch data every 30 seconds
+//     fetchData(); // fetch data immediately
+//     const intervalId = setInterval(fetchData, 5000); // fetch data every 30 seconds
 
-    // clean up the interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []);
+//     // clean up the interval on component unmount
+//     return () => clearInterval(intervalId);
+//   }, []);
 
-  return (
-    <>
-      <button
-        className="pill"
-        ref={referenceElement}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-      >
-        <i className="iconfont icon-gas1"></i>
-        <span>{feerate.halfHourFee}</span>
-      </button>
-      <div
-        className={`gas-popover popover ${visible ? "is-visible" : "hidden"}`}
-        style={styles.popper}
-        ref={popperElement}
-        {...attributes.popper}
-      >
-        <div className="arrow" style={styles.arrow} ref={arrowElement}></div>
-        <div className="popover-content">
-          <div className="gas-list">
-            <div className="gas-item">
-              <i className="nav-rate-icon iconfont icon-bike"></i>
-              <span className="nav-rate-text">Low: {feerate.hourFee} sats/vB</span>
-            </div>
-            <div className="gas-item">
-              <i className="nav-rate-icon iconfont icon-plane1"></i>
-              <span className="nav-rate-text">Medium: {feerate.halfHourFee} sats/vB</span>
-            </div>
-            <div className="gas-item">
-              <i className="nav-rate-icon iconfont icon-flashlight-line"></i>
-              <span className="nav-rate-text">High: {feerate.fastestFee} sats/vB</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <button
+//         className="pill"
+//         ref={referenceElement}
+//         onMouseEnter={() => setVisible(true)}
+//         onMouseLeave={() => setVisible(false)}
+//       >
+//         <i className="iconfont icon-gas1"></i>
+//         <span>{feerate.halfHourFee}</span>
+//       </button>
+//       <div
+//         className={`gas-popover popover ${visible ? "is-visible" : "hidden"}`}
+//         style={styles.popper}
+//         ref={popperElement}
+//         {...attributes.popper}
+//       >
+//         <div className="arrow" style={styles.arrow} ref={arrowElement}></div>
+//         <div className="popover-content">
+//           <div className="gas-list">
+//             <div className="gas-item">
+//               <i className="nav-rate-icon iconfont icon-bike"></i>
+//               <span className="nav-rate-text">Low: {feerate.hourFee} sats/vB</span>
+//             </div>
+//             <div className="gas-item">
+//               <i className="nav-rate-icon iconfont icon-plane1"></i>
+//               <span className="nav-rate-text">Medium: {feerate.halfHourFee} sats/vB</span>
+//             </div>
+//             <div className="gas-item">
+//               <i className="nav-rate-icon iconfont icon-flashlight-line"></i>
+//               <span className="nav-rate-text">High: {feerate.fastestFee} sats/vB</span>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
-interface InfoPopoverProps extends PropsWithChildren {
-  title: string;
-}
+// interface InfoPopoverProps extends PropsWithChildren {
+//   title: string;
+// }
 
-function InfoPopover({ title, children }: InfoPopoverProps) {
-  const [visible, setVisible] = useState(false);
-  const referenceElement = useRef(null);
-  const popperElement = useRef(null);
-  const arrowElement = useRef(null);
-  const { styles, attributes } = usePopper(
-    referenceElement.current,
-    popperElement.current,
-    {
-      modifiers: [
-        { name: "arrow", options: { element: arrowElement.current } },
-      ],
-    }
-  );
+// function InfoPopover({ title, children }: InfoPopoverProps) {
+//   const [visible, setVisible] = useState(false);
+//   const referenceElement = useRef(null);
+//   const popperElement = useRef(null);
+//   const arrowElement = useRef(null);
+//   const { styles, attributes } = usePopper(
+//     referenceElement.current,
+//     popperElement.current,
+//     {
+//       modifiers: [
+//         { name: "arrow", options: { element: arrowElement.current } },
+//       ],
+//     }
+//   );
 
-  return (
-    <>
-      <div
-        ref={referenceElement}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-      >
-        {children}
-      </div>
-      <div
-        className={`info-popover popover ${visible ? "is-visible" : "hidden"}`}
-        style={styles.popper}
-        ref={popperElement}
-        {...attributes.popper}
-      >
-        <div className="arrow" style={styles.arrow} ref={arrowElement}></div>
-        <span className="popover-content">{title}</span>
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <div
+//         ref={referenceElement}
+//         onMouseEnter={() => setVisible(true)}
+//         onMouseLeave={() => setVisible(false)}
+//       >
+//         {children}
+//       </div>
+//       <div
+//         className={`info-popover popover ${visible ? "is-visible" : "hidden"}`}
+//         style={styles.popper}
+//         ref={popperElement}
+//         {...attributes.popper}
+//       >
+//         <div className="arrow" style={styles.arrow} ref={arrowElement}></div>
+//         <span className="popover-content">{title}</span>
+//       </div>
+//     </>
+//   );
+// }
 
-interface ExtraItemProps {
-  title: string;
-  icon: string;
-}
+// interface ExtraItemProps {
+//   title: string;
+//   icon: string;
+// }
 
-function ExtraItem({ title, icon }: ExtraItemProps) {
-  return (
-    <div className="additional-item">
-      <i className={`iconfont gn-icon-click ${icon}`}></i>
-      <span>{title}</span>
-    </div>
-  );
-}
+// function ExtraItem({ title, icon }: ExtraItemProps) {
+//   return (
+//     <div className="additional-item">
+//       <i className={`iconfont gn-icon-click ${icon}`}></i>
+//       <span>{title}</span>
+//     </div>
+//   );
+// }
 
-function EllipsisPopover() {
-  const [visible, setVisible] = useState(false);
-  const referenceElement = useRef(null);
-  const popperElement = useRef(null);
-  const { styles, attributes } = usePopper(
-    referenceElement.current,
-    popperElement.current
-  );
+// function EllipsisPopover() {
+//   const [visible, setVisible] = useState(false);
+//   const referenceElement = useRef(null);
+//   const popperElement = useRef(null);
+//   const { styles, attributes } = usePopper(
+//     referenceElement.current,
+//     popperElement.current
+//   );
 
-  function onNightToggle() { }
+//   function onNightToggle() { }
 
-  return (
-    <>
-      <button
-        className="more-btn"
-        ref={referenceElement}
-        onClick={() => setVisible(!visible)}
-        onBlur={() => setVisible(false)}
-      >
-        <i className="iconfont icon-more"></i>
-      </button>
-      <div
-        className={`more-popover popover ${visible ? "is-visible" : "hidden"}`}
-        style={styles.popper}
-        ref={popperElement}
-        {...attributes.popper}
-      >
-        <div className="popover-content">
-          <div>
-            <div className="night-mode">
-              <i className="iconfont gn-icon-click icon-dark"></i>
-              <span>Night Mode</span>
-              <SwitchButton
-                className="toggle"
-                onUpdate={onNightToggle}
-                defaultVal={true}
-              />
-            </div>
-            <ExtraItem title="About" icon="icon-info-circle-filled" />
-            <ExtraItem title="API" icon="icon-soundmian" />
-            <ExtraItem title="Twitter" icon="icon-twitter1" />
-            <ExtraItem title="Discord" icon="icon-discord-fill" />
-            <ExtraItem title="Documentation" icon="icon-book-filled" />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <button
+//         className="more-btn"
+//         ref={referenceElement}
+//         onClick={() => setVisible(!visible)}
+//         onBlur={() => setVisible(false)}
+//       >
+//         <i className="iconfont icon-more"></i>
+//       </button>
+//       <div
+//         className={`more-popover popover ${visible ? "is-visible" : "hidden"}`}
+//         style={styles.popper}
+//         ref={popperElement}
+//         {...attributes.popper}
+//       >
+//         <div className="popover-content">
+//           <div>
+//             <div className="night-mode">
+//               <i className="iconfont gn-icon-click icon-dark"></i>
+//               <span>Night Mode</span>
+//               <SwitchButton
+//                 className="toggle"
+//                 onUpdate={onNightToggle}
+//                 defaultVal={true}
+//               />
+//             </div>
+//             <ExtraItem title="About" icon="icon-info-circle-filled" />
+//             <ExtraItem title="API" icon="icon-soundmian" />
+//             <ExtraItem title="Twitter" icon="icon-twitter1" />
+//             <ExtraItem title="Discord" icon="icon-discord-fill" />
+//             <ExtraItem title="Documentation" icon="icon-book-filled" />
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 interface AddressPopoverProps {
   address: string;
@@ -258,71 +257,71 @@ function AddressPopover({ address, disconnectWallet }: AddressPopoverProps) {
   );
 }
 
-interface SwitchButtonProps {
-  className?: string;
-  defaultVal?: boolean;
-  onUpdate?: (newVal: boolean) => void;
-}
+// interface SwitchButtonProps {
+//   className?: string;
+//   defaultVal?: boolean;
+//   onUpdate?: (newVal: boolean) => void;
+// }
 
-interface MenuControlToggleProps extends SwitchButtonProps {
-  text: string;
-}
+// interface MenuControlToggleProps extends SwitchButtonProps {
+//   text: string;
+// }
 
-function SwitchButton({ className, defaultVal, onUpdate }: SwitchButtonProps) {
-  const [value, setValue] = useState(!!defaultVal);
+// function SwitchButton({ className, defaultVal, onUpdate }: SwitchButtonProps) {
+//   const [value, setValue] = useState(!!defaultVal);
 
-  function handleSwitch() {
-    setValue(!value);
-    onUpdate?.(!value);
-  }
+//   function handleSwitch() {
+//     setValue(!value);
+//     onUpdate?.(!value);
+//   }
 
-  return (
-    <label
-      className={`switch ${className} ${value ? "on" : "off"}`}
-      onClick={handleSwitch}
-    ></label>
-  );
-}
+//   return (
+//     <label
+//       className={`switch ${className} ${value ? "on" : "off"}`}
+//       onClick={handleSwitch}
+//     ></label>
+//   );
+// }
 
-function MenuControlToggle({ text, onUpdate }: MenuControlToggleProps) {
-  return (
-    <a className="menu-item">
-      <span className="text">{text}</span>
-      <SwitchButton onUpdate={onUpdate} />
-    </a>
-  );
-}
+// function MenuControlToggle({ text, onUpdate }: MenuControlToggleProps) {
+//   return (
+//     <a className="menu-item">
+//       <span className="text">{text}</span>
+//       <SwitchButton onUpdate={onUpdate} />
+//     </a>
+//   );
+// }
 
-interface SideNavProps {
-  open: boolean;
-}
+// interface SideNavProps {
+//   open: boolean;
+// }
 
-function SideNav({ open }: SideNavProps) {
-  return (
-    <aside
-      className="sidenav"
-      style={{
-        display: open ? "" : "none",
-      }}
-    >
-      <div className="wrapper">
-        <div className="menu-links">
-          <MenuItem text="Discover" to="" />
-          <MenuItem text="Portfolio" to="" />
-          <MenuItem text="Inscriptions" to="" />
-          <MenuItem text="Index" to="" />
-          <MenuItem text="Mint" to="" />
-          <MenuItem text="Rewards" to="" />
-          <MenuItem text="About" to="" />
-          <MenuItem text="Documentation" to="" />
-        </div>
+// function SideNav({ open }: SideNavProps) {
+//   return (
+//     <aside
+//       className="sidenav"
+//       style={{
+//         display: open ? "" : "none",
+//       }}
+//     >
+//       <div className="wrapper">
+//         <div className="menu-links">
+//           <MenuItem text="Discover" to="" />
+//           <MenuItem text="Portfolio" to="" />
+//           <MenuItem text="Inscriptions" to="" />
+//           <MenuItem text="Index" to="" />
+//           <MenuItem text="Mint" to="" />
+//           <MenuItem text="Rewards" to="" />
+//           <MenuItem text="About" to="" />
+//           <MenuItem text="Documentation" to="" />
+//         </div>
 
-        <MenuControlToggle text="Dark Mode" />
-        <MenuItem text="Install Our App" to="" />
-      </div>
-    </aside>
-  );
-}
+//         <MenuControlToggle text="Dark Mode" />
+//         <MenuItem text="Install Our App" to="" />
+//       </div>
+//     </aside>
+//   );
+// }
 
 interface NavbarProps {
   isConnected: boolean;
@@ -337,7 +336,7 @@ export default function Navbar({
   onClickConnectButton,
   OnWalletDisconnect,
 }: NavbarProps) {
-  const [openMenu, setOpenMenu] = useState(false);
+  // const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div className="fixed left-0 right-0 top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4">
@@ -388,10 +387,20 @@ export default function Navbar({
           </div> */}
           <div className="hidden lg:block">
             <div className="relatvive">
-             <button className="border border-solid border-primary/30 px-4 py-3 rounded-full relative flex items-center gap-2" id="headlessui-menu-button-:r0:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">
-                <img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill" data-nsfw-filter-status="sfw" style={{visibility: "visible"}}/>
-                <span>Connect Wallet</span>
-              </button>
+            {isConnected ? (
+            <div className="address-dropdown">
+              <AddressPopover
+                address={accountAddress}
+                disconnectWallet={OnWalletDisconnect}
+              />
+            </div>
+          ) : (
+            <button onClick={onClickConnectButton}
+              className="border border-solid border-primary/30 px-4 py-3 rounded-full relative flex items-center gap-2" id="headlessui-menu-button-:r0:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">
+              <img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill" data-nsfw-filter-status="sfw" style={{visibility: "visible"}}/>
+              <span>Connect Wallet</span>
+            </button>
+          )}
             </div>
           </div>
         </header>

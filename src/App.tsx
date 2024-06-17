@@ -92,7 +92,7 @@ function App() {
 					</Routes>
 				</Router>
 			<Footer/>
-			{/* <LoadingModal
+			<LoadingModal
 				isLoading = {stateOfLoadingWallet.isLoading}
 				walletId = {stateOfLoadingWallet.walletId}
 				message = {stateOfLoadingWallet.message}
@@ -112,7 +112,7 @@ function App() {
 						onRemove={(id) => setAlerts((prev) => prev.filter((alert) => alert.id !== id))}
 					/>
 				))}
-			</div> */}
+			</div>
 		</>
 	);
 }

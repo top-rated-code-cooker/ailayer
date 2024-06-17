@@ -1,21 +1,34 @@
 import "./mainframe.css";
-import Footer from "../footer";
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { CoinsList } from "./coinlist";
+interface  MainFrameProps {
+	isConnected: boolean;
+	htmlContent: string;
+	OnSendAsset: () => void;
+	OnClickConnectButton: () => void;
+}
 
-
-export default function MainFrame( ) {
+export default function MainFrame( {isConnected} : MainFrameProps) {
+	
 	const [coinUrl, setCoinUrl] = useState('https://stake.ailayer.xyz/images/chain/bitcoin.png');
 	const [coinName, setCoinName] = useState('Bitcoin');
-	const [SelectShow, setSelectShow] = useState('false');
-	const [coinShow, setCoinShow] = useState('false');
+	const [SelectShow, setSelectShow] = useState(false);
 	const [cryptoShow, setCryptoShow] = useState('false');
+	const [coinshow, setCoinShow] = useState(false);
 	const [status, setStatus] = useState('bitcoin');
 	const [cryptoUrl, setCryptoUrl] = useState('false');
 	const [cryptoName, setCryptoName] = useState('false');
 	const [selectTab, setSelectTab] = useState('stake')
+	const [exchangeAmount, setExchangeAmount] = useState("");
+	const [selectedCoin, setSelectedCoin] = useState({
+		name: 'BTC',
+		img: "https://stake.ailayer.xyz/images/token/btc.png"
+	})
+
 	function changeView(): void {
 		// Implementation here
-		setSelectShow('true');
+		debugger;
+		setSelectShow(!SelectShow);
 	}
 
 	function selectTabState(value: string) {
@@ -38,7 +51,7 @@ export default function MainFrame( ) {
 			setCoinName("Polygon");
 			setStatus("polygon");
 		}
-		setSelectShow("false")
+		setSelectShow(false)
 		
 	  }
 
@@ -90,67 +103,72 @@ export default function MainFrame( ) {
 					<div className="short-label" style={{marginTop: 20, fontSize: 47}}>
 						<label><strong>$ 695, 349, 059</strong></label>
 					</div>
-					<div className="short-label" style={{marginTop: 50}}>
+					<div className="short-label text-primary/70 mb-1" style={{marginTop: 50}}>
 						<label >Supported Assets</label>
 					</div>
 					<div className="flex flex-wrap -mx-2">
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/btc.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/bdin.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/aigc.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/stst.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/soul.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/9527.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mice.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depd.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/aisi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/nost.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mmss.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/kong.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/btcs.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/deai.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/roup.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/pgid.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/efil.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/etgm.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/slor.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/korm.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/3518.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/csas.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/piin.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/insc.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ligo.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/vdbx.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/pika.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/foxs.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sparkle.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ethi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ethpi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ierc-m4.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/zeroi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/pols.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/bnbs.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sofi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/bsci.png"/>
+						{
+							CoinsList.map(coin => (
+								< div className="tooltip">
+									<div className="tooltiptext">
+										{coin.name}
+									</div>
+									<img className="coin-img w-8 h-8 rounded-full" src={coin.img}/>
+								</div>
+							))
+						}
 					</div>
+
 					<div className="short-label">
 						<label >Buff assets</label>
 					</div>
-					<img className="coin-img mt-8" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
+
+					< div className="tooltip">
+						<div className="tooltiptext">
+							ainn
+						</div>
+						<img className="coin-img w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
+					</div>
+
 					<div className="flex flex-wrap -mx-2 mt-1">
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								ordi
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
+						</div>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								rats
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
+						</div>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								sats
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
+						</div>
 					</div>
 					<div className="flex flex-wrap -mx-2 mt-0">
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depd.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mmss.png"/>
-						<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								depd
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depd.png"/>
+						</div>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								mmss
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mmss.png"/>
+						</div>
+						<div className="tooltip">
+							<div className="tooltiptext">
+								play
+							</div>
+							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
+						</div>
 					</div>
 					<div className="exp-div mt-10 w-full rounded-lg bg-cover pb-5">
 						<a href="https://mainnet-explorer.ailayer.xyz/" className=" w-full">
@@ -164,14 +182,39 @@ export default function MainFrame( ) {
 				</div>
 				<div className="content-div" style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
 					<div className=" coin-div rounded-x1">
-						<div className="bg-[#030515]/40 relative" style={{borderRadius: 10}}>
-							<button className="outline-none relative py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white" id="headlessui-tabs-tab-:R1d9nnicda:" role="tab" type="button" aria-selected="true" tabindex="0" data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:R1l9nnicda:" onClick={() => selectTabState("stake")}>Stake</button>
-							<button className="outline-none py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary" id="headlessui-tabs-tab-:R2d9nnicda:" role="tab" type="button" aria-selected="false" tabIndex="-1" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:R2l9nnicda:" onClick={() => selectTabState("withdraw")}>Withdraw</button>
-							<button className="outline-none py-3 px-8 flex items-center gap-1 absolute top-0.5 right-0" id="headlessui-tabs-tab-:R3d9nnicda:" role="tab" type="button" aria-selected="false" tabindex="-1" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:R3l9nnicda:" onClick={() => selectTabState("history")}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="w-4 h-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg><span className="text-sm">History</span></button>
+						<div className="bg-[#030515]/40 relative rounded-t-xl">
+							<button 
+								className =
+								{
+									selectTab == "stake" ?
+									"h1-selected outline-none relative py-3 px-8 hover:g-tab-bg-gradient hover:text-white"
+									:
+									"outline-none relative py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white"
+								}
+									onClick={() => selectTabState("stake")}>Stake</button>
+							<button  
+								className =
+								{
+									selectTab == "withdraw" ?
+									"h1-selected outline-none py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary"
+									:
+									"outline-none py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary"
+								}
+								onClick={() => selectTabState("withdraw")}>Withdraw</button>
+							<button 
+								className =
+								{
+									selectTab == "history" ?
+									"h1-selected outline-none py-3 px-8 flex items-center gap-1 absolute top-0.5 right-0" 
+									:
+									"outline-none py-3 px-8 flex items-center gap-1 absolute top-0.5 right-0"
+								}
+									 role="tab" type="button" aria-selected="false"  data-headlessui-state="" aria-controls="headlessui-tabs-panel-:R3l9nnicda:" onClick={() => selectTabState("history")}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="w-4 h-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg><span className="text-sm">History</span>
+									</button>
 						</div>
 						
 						<div>
-							<div style={{backgroundColor: 'rgba(3, 5, 21, .5)'}} className="pt-2 px-2 md:pt-8 md:px-8 g-tab-bg-gradient2" id="headlessui-tabs-panel-:R1l9nnicda:" role="tabpanel" tabindex="0" data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:R1d9nnicda:">
+							<div style={{backgroundColor: 'rgba(3, 5, 21, .5)'}} className="pt-2 px-2 md:pt-8 md:px-8 g-tab-bg-gradient2" id="headlessui-tabs-panel-:R1l9nnicda:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:R1d9nnicda:">
 								{selectTab != "history" && 
 								<div style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
 									<div className="flex flex-col justify-between">
@@ -193,20 +236,20 @@ export default function MainFrame( ) {
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
 															</svg>
 														</button>
-														{SelectShow == "true" ?
+														{SelectShow == true ?
 														
-														<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rf:" aria-orientation="vertical" id="headlessui-listbox-options-:rg:" role="listbox" tabindex="0" data-headlessui-state="open">
-															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rk:" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected" onClick={() => selectCoin(1)}>
+														<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rf:" aria-orientation="vertical" id="headlessui-listbox-options-:rg:" role="listbox"  data-headlessui-state="open">
+															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rk:" role="option"  aria-selected="true" data-headlessui-state="selected" onClick={() => selectCoin(1)}>
 																<img src="https://stake.ailayer.xyz/images/chain/bitcoin.png" className="w-4 h-4 rounded-full" alt=""/>
 																<span className="flex-1">Bitcoin
 																</span>
 															</li>
-															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rl:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(2)}>
+															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rl:" role="option"  aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(2)}>
 																<img src="https://stake.ailayer.xyz/images/chain/56.png" className="w-4 h-4 rounded-full" alt=""/>
 																<span className="flex-1">BNB Chain
 																</span>
 															</li>
-															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rm:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(3)}>
+															<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rm:" role="option"  aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(3)}>
 																<img src="https://icons.llamao.fi/icons/chains/rsz_polygon.jpg" className="w-4 h-4 rounded-full" alt=""/>
 																<span className="flex-1">Polygon
 																</span>
@@ -258,20 +301,20 @@ export default function MainFrame( ) {
 																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
 																</svg>
 															</button>
-															{SelectShow == "true" ?
+															{SelectShow == true ?
 															
-															<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rf:" aria-orientation="vertical" id="headlessui-listbox-options-:rg:" role="listbox" tabindex="0" data-headlessui-state="open">
-																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rk:" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected" onClick={() => selectCoin(1)}>
+															<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rf:" aria-orientation="vertical" id="headlessui-listbox-options-:rg:" role="listbox"  data-headlessui-state="open">
+																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rk:" role="option"  aria-selected="true" data-headlessui-state="selected" onClick={() => selectCoin(1)}>
 																	<img src="https://stake.ailayer.xyz/images/chain/bitcoin.png" className="w-4 h-4 rounded-full" alt=""/>
 																	<span className="flex-1">Bitcoin
 																	</span>
 																</li>
-																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rl:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(2)}>
+																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rl:" role="option"  aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(2)}>
 																	<img src="https://stake.ailayer.xyz/images/chain/56.png" className="w-4 h-4 rounded-full" alt=""/>
 																	<span className="flex-1">BNB Chain
 																	</span>
 																</li>
-																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rm:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(3)}>
+																<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rm:" role="option" aria-selected="false" data-headlessui-state="" onClick={() => selectCoin(3)}>
 																	<img src="https://icons.llamao.fi/icons/chains/rsz_polygon.jpg" className="w-4 h-4 rounded-full" alt=""/>
 																	<span className="flex-1">Polygon
 																	</span>
@@ -293,21 +336,43 @@ export default function MainFrame( ) {
 													<div className="my-2">
 														<div className="text-primary/70 mb-1">Amount</div>
 														<div className="relative">
-															<input className="py-3 my-2 px-4 text-xl font-bold rounded-md w-full main-radius bg-[#030515]/50 outline-none disabled:cursor-not-allowed" placeholder="0" value=""/>
+															<input className="py-3 my-2 px-4 text-xl font-bold rounded-md w-full main-radius bg-[#030515]/50 outline-none disabled:cursor-not-allowed" placeholder="0" value={exchangeAmount} onChange={e=>setExchangeAmount(e.target.value)}/>
 															<div className="absolute right-4 top-6">
 																<div>
-																	<button className="flex items-center gap-2" id="headlessui-listbox-button-:r7r:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="">
-																		<span>BTC</span>
+																	<button className="flex items-center gap-2" id="headlessui-listbox-button-:r7r:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" onClick={()=>setCoinShow(!coinshow)}>
+																		<span>{selectedCoin.name}</span>
 																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
 																		</svg>
 																	</button>
+																	{
+																		coinshow ?
+																		<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:r3p:" aria-orientation="vertical" id="headlessui-listbox-options-:r3q:" role="listbox" data-headlessui-state="open" onClick={()=>setCoinShow(false)}>
+																			{
+																				CoinsList.map(coin => {
+																					return(
+																						<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:r3s:" role="option" aria-selected="true" data-headlessui-state="selected" onClick={() => setSelectedCoin(coin)}>
+																							<img src={coin.img} className="w-4 h-4 rounded-full" alt=""/>
+																						<span className="flex-1">{coin.name}</span>
+																						<span>
+																							{coin.name.toLocaleLowerCase() != 'btc' ?
+																							"brc-20" : null}
+																						</span>
+																						</li>
+																					)
+																				})
+																			}
+																		</ul>
+																	:
+																	null
+																	}
+																	
 																</div>
 															</div>
 														</div>
 														<div className="my-1">
 															<div className="flex items-center gap-2 text-sm">
-																<span className="text-primary">Balance:</span>
-																<span></span><img src="https://stake.ailayer.xyz/images/token/btc.png" className="w-4 h-4 rounded-full" alt=""/>
+																<span className="text-primary/70">Balance:</span>
+																<span></span><img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
 															</div>
 														</div>
 														<div className="mt-4">
@@ -383,12 +448,12 @@ export default function MainFrame( ) {
 												</div>
 											</div>
 											{cryptoShow == "true" ? 
-											<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rva:" aria-orientation="vertical" id="headlessui-listbox-options-:rvb:" role="listbox" tabindex="0" data-headlessui-state="open" aria-activedescendant="headlessui-listbox-option-:rvg:">
-												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvg:" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="active selected" onClick={() => selectCrypto(1)}><img src="https://stake.ailayer.xyz/images/token/usdt.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">USDT</span>
+											<ul className="absolute z-10 -right-4 mt-5 rounded-lg border border-primary/20 bg-black w-[180px] max-h-[320px] overflow-auto" aria-labelledby="headlessui-listbox-button-:rva:" aria-orientation="vertical" id="headlessui-listbox-options-:rvb:" role="listbox"  data-headlessui-state="open" aria-activedescendant="headlessui-listbox-option-:rvg:">
+												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvg:" role="option" aria-selected="true" data-headlessui-state="active selected" onClick={() => selectCrypto(1)}><img src="https://stake.ailayer.xyz/images/token/usdt.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">USDT</span>
 												</li>
-												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvh:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCrypto(2)}><img src="https://stake.ailayer.xyz/images/token/usdc.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">USDC</span>
+												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvh:" role="option" aria-selected="false" data-headlessui-state="" onClick={() => selectCrypto(2)}><img src="https://stake.ailayer.xyz/images/token/usdc.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">USDC</span>
 												</li>
-												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvi:" role="option" tabindex="-1" aria-selected="false" data-headlessui-state="" onClick={() => selectCrypto(3)}><img src="https://stake.ailayer.xyz/images/token/bnb.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">BNB</span>
+												<li className="text-sm py-2 px-4 flex items-center gap-2 cursor-pointer hover:bg-primary/10" id="headlessui-listbox-option-:rvi:" role="option" aria-selected="false" data-headlessui-state="" onClick={() => selectCrypto(3)}><img src="https://stake.ailayer.xyz/images/token/bnb.png" className="w-4 h-4 rounded-full" alt=""/><span className="flex-1">BNB</span>
 												</li>
 											</ul>
 											: ""}
@@ -411,18 +476,27 @@ export default function MainFrame( ) {
 													Join
 												</button>
 											</div>
-											<div className="mt-3 text-center font-bold text-red-400">Please connect evm wallet and sign in.
-											</div>
-											<div className="flex justify-center mt-4">
-												<button className="border border-primary/30 px-20 py-3 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed">
-													<img src="https://stake.ailayer.xyz/images/button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill" data-nsfw-filter-status="sfw" style={{visibility: 'visible'}}/>
-													<span>Please Switch Network</span>
+											{isConnected ?
+												(
+												<div className="flex justify-center mt-4">
+													<button className="border border-solid border-primary/30 px-20 py-3 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed">
+														<img src="https://stake.ailayer.xyz/images/button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill" data-nsfw-filter-status="sfw" style={{visibility: 'visible'}}/>
+														<span>Please Switch Network</span>
+													</button>
+												</div>
+												):
+												<div className="mt-3 text-center font-bold text-red-400"> Please connect evm wallet and sign in.
+												</div>
+											}
+											<div className="flex justify-center my-5">
+												<button
+													className="border border-solid border-primary/30 px-20 py-3 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed" >
+													<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"></img>
+													<span>Stake</span>
 												</button>
 											</div>
 											<div className="text-xs text-primary text-center mt-4 mb-5">Powered by Butternetwork</div>
 										</div>
-
-
 										
 								</div>
 								
@@ -432,10 +506,10 @@ export default function MainFrame( ) {
 							<div className="flex flex-col justify-center items-center text-sm -mx-8 md:-mt-8">
 								<div className="py-2 text-primary/50 w-full px-8">Cross-chain history might being delayed a bit. Thanks for your patience
 								</div>
-								<div className="w-full px-8 flex items-center gap-2 text-primary" role="tablist" aria-orientation="horizontal"><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white " id="headlessui-tabs-tab-:rl0:" role="tab" type="button" aria-selected="true" tabindex="0" data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:rl2:">Confirmed</button><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white" id="headlessui-tabs-tab-:rl1:" role="tab" type="button" aria-selected="false" tabindex="-1" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
+								<div className="w-full px-8 flex items-center gap-2 text-primary" role="tablist" aria-orientation="horizontal"><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white " id="headlessui-tabs-tab-:rl0:" role="tab" type="button" aria-selected="true"  data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:rl2:">Confirmed</button><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white" id="headlessui-tabs-tab-:rl1:" role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
 								</div>
 								<div className="w-full mt-2">
-									<div id="headlessui-tabs-panel-:rl2:" role="tabpanel" tabindex="0" data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:rl0:">
+									<div id="headlessui-tabs-panel-:rl2:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:rl0:">
 										<div>
 											<div className="flex flex-col justify-center items-center pb-10"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="text-3xl text-primary mt-10" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg>
 												<div className="text-sm text-primary">No history yet
@@ -444,7 +518,7 @@ export default function MainFrame( ) {
 											<ul></ul>
 										</div>
 									</div>
-									<span aria-hidden="true" id="headlessui-tabs-panel-:rl3:" role="tabpanel" tabindex="-1" aria-labelledby="headlessui-tabs-tab-:rl1:" ></span>
+									<span aria-hidden="true" id="headlessui-tabs-panel-:rl3:" role="tabpanel"  aria-labelledby="headlessui-tabs-tab-:rl1:" ></span>
 								</div>
 								
 							
