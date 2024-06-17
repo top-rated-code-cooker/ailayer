@@ -1,5 +1,5 @@
 import ReferModal from "../modal/ReferModal";
-import CardModal from "./CardModal";
+import CardModal from "../modal/CardModal";
 import "./stake.css"
 import Modal from 'react-modal';
 import { useState } from "react";
@@ -8,6 +8,7 @@ function Stake(){
    
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [cardModalIsOpen, setCardModalIsOpen] = useState(false);
+    const [selectedAsset, setSelectedAsset] = useState("personal");
     // useEffect(() => {
     //     console.log(modalIsOpen)
     // }, [modalIsOpen]) 
@@ -18,6 +19,11 @@ function Stake(){
 
     const openModal = () => {
         setModalIsOpen(true);
+        console.log('opening modal')
+    };
+
+    const openCardModal = () => {
+        setCardModalIsOpen(true);
         console.log('opening modal')
     };
 
@@ -80,8 +86,6 @@ function Stake(){
                             <div className="text-primary text-xl">Your Invite Code
                             </div>
                             <button className="text-primary text-md flex justify-center items-center gap-2" onClick={openModal}>Referral Rules <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 192 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
-                          
-                            
                             </button>
                            
                         </div>
@@ -164,7 +168,7 @@ function Stake(){
         <div className="flex justify-center items-center lg:ml-5"><button disabled className="main-radius py-2 px-6 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"><img src="https://stake.ailayer.xyz/images/button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/><span>Draw Cards</span></button>
         </div>
     </div>
-    <button className="flex justify-start items-center text-primary"><span>My Cards</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 192 512" className="ml-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
+    <button className="flex justify-start items-center text-primary" onClick={openCardModal}><span>My Cards</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 192 512" className="ml-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
     </button>
 </div>
 </div>
@@ -172,7 +176,11 @@ function Stake(){
     <div className="mt-10 relative">
         <div className="bg-[#030515]/40 text-primary/50 relative text-xl lg:text-2xl font-semibold" role="tablist" aria-orientation="horizontal">
             <button className="outline-none py-4 pr-4 hl-selected:text-white hover:text-white" id="headlessui-tabs-tab-:r2:" role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r4:">
-                <div className="flex flex-col justify-between gap-1"><span>Your Assets</span>
+                <div className="flex flex-col justify-between gap-1" onClick={()=>setSelectedAsset("personal")}><span>Your Assets</span>
+                    {selectedAsset == "personal" && <div style={{ transform: 'none', transformOrigin: '50% 50% 0px' }}>
+                        <img className="opacity-100" src="https://stake.ailayer.xyz/images/stake/sel.png" alt="Selected Icon" />
+                    </div>
+                    }
                 </div>
             </button>
             <button
@@ -184,11 +192,12 @@ function Stake(){
                 data-headlessui-state="selected"
                 aria-controls="headlessui-tabs-panel-:r5:"
                 >
-                <div className="flex flex-col justify-between gap-1">
+                <div className="flex flex-col justify-between gap-1" onClick={()=>setSelectedAsset("team")}>
                     <span>Team Assets</span>
-                    <div style={{ transform: 'none', transformOrigin: '50% 50% 0px' }}>
-                    <img className="opacity-100" src="https://stake.ailayer.xyz/images/stake/sel.png" alt="Selected Icon" />
+                    {selectedAsset == "team" && <div style={{ transform: 'none', transformOrigin: '50% 50% 0px' }}>
+                        <img className="opacity-100" src="https://stake.ailayer.xyz/images/stake/sel.png" alt="Selected Icon" />
                     </div>
+                    }
                 </div>
             </button>
         </div>

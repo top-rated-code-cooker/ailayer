@@ -4,7 +4,6 @@ interface ReferModelProps {
   closeModal: (arg0: boolean) => void;
 }
 
-
 const ReferModel: React.FC<ReferModelProps> = ({ closeModal }) => {
   return (
       <div className="bg-[#121325] main-radius rounded-2xl w-[480px] md:w-[840px] mx-4 overflow-hidden" style={{fontFamily: 'math'}}>
