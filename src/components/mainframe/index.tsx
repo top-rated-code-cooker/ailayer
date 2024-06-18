@@ -192,9 +192,9 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 								className =
 								{
 									selectTab == "stake" ?
-									"h1-selected outline-none relative py-3 px-8 hover:h1-selected hover:text-white"
+									"h1-selected rounded-tl-lg outline-none relative py-3 px-8 hover:h1-selected hover:text-white"
 									:
-									"outline-none relative py-3 px-8 hl-selected:g-tab-bg-gradient text-primary\/70 hover:g-tab-bg-gradient hl-selected:text-white  panelTab"
+									"outline-none rounded-tl-lg relative py-3 px-8 hl-selected:g-tab-bg-gradient text-primary\/70 hover:g-tab-bg-gradient hl-selected:text-white  panelTab"
 								}
 									onClick={() => selectTabState("stake")}>Stake</button>
 							<button  

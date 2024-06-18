@@ -349,13 +349,13 @@ export default function Navbar({
               <a href="https://ailayer.xyz" target="_blank" className="font-system text-[16px] g-text-fill g-bg-text-gradient relative">Home</a>
                     <div className="h-1 w-1 rounded-full bg-primary/70">
                     </div>
-              <a href="https://social.ailayer.xyz" target="_blank" className="font-system g-text-fill g-bg-text-gradient relative text-[16.5px]">
+              <a href="https://social.ailayer.xyz" target="_blank" className="font-system g-text-fill g-bg-text-gradient relative text-[16.px]">
                 <span className="g-text-fill g-bg-text-gradient absolute -right-5 -top-4 text-[12px]">Epoch 2</span>
                 Social Campaign</a><div className="h-1 w-1 rounded-full bg-primary/70"></div>
-              <a className="font-hind relative text-[16.5px]" href="/stake">
+              <a className="font-hind relative text-[16px]" href="/stake">
                 <span className="g-text-fill g-bg-text-gradient font-system">Staking Campaign</span></a>
               <div className="h-1 w-1 rounded-full bg-primary/70"></div>
-              <a className="font-hind relative text-[16.5px]" href="/">
+              <a className="font-hind relative text-[16px]" href="/">
                 <span className="g-text-fill g-bg-text-gradient font-system">Stake</span>
               </a>
           </div>
