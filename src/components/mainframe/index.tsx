@@ -99,14 +99,14 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 									Guide
 								</button>
 							</div>
-							<div className="short-label">
-						<label className="text-primary/70 mb-1 font-system">TVL</label>
+							<div className="short-label mb-1 ">
+						<label className="text-primary/70 font-system">TVL</label>
 						</div>
 						<div className="my-4 relative font-system font-bold g-bg-text-gradient g-text-fill text-4xl lg:text-5xl tracking-[5px] lg:tracking-[10px] text-white">
 							<span>$</span>
 							<span>681,975,059</span>
 						</div>
-						<div className="short-label text-primary/70 font-system" style={{marginTop: 50}}>
+						<div className="short-label text-primary/70 font-system mt-10">
 							<label >Supported Assets</label>
 						</div>
 						<div className="flex flex-wrap my-8 gap-4">
@@ -338,7 +338,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 											
 											{status == "bitcoin" ?
 
-													<div className="my-2">
+													<div className="mt-2">
 														<div className="text-primary/70 mb-1">Amount</div>
 														<div className="relative">
 															<input className="py-3 my-2 px-4 text-xl font-bold rounded-md w-full border border-primary/20 bg-[#030515]/50 outline-none disabled:cursor-not-allowed" placeholder="0" value={exchangeAmount} onChange={e=>setExchangeAmount(e.target.value)}/>
