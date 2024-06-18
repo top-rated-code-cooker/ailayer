@@ -82,7 +82,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 				<div className="content-div grid grid-cols-1 md:grid-cols-2 gap-20">
 					<div className="opacity: 1; transform: translateY(0px) translateZ(0px);">
 						<div>
-							<label className="main-label g-bg-text-gradient g-text-fill font-system tracking-[0.1px]">
+							<label className="main-label g-bg-text-gradient g-text-fill font-system tracking-[0.01px]">
 								AILayer Dataset Staking Event: <br></br>
 								The More You Stake,<br></br>
 								The More You Earn
