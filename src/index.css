@@ -55,7 +55,7 @@
   font-display: swap
 }
 
-@font-face {
+/* @font-face {
   font-family: ui-sans-serif;
   src: url(./assets/fonts/SFUIText-Medium.ttf);
   font-weight: 400;
@@ -77,13 +77,13 @@
   font-weight: 800;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 html {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
-  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 .dark-theme .dialog {
@@ -113,7 +113,7 @@ html {
 }
 
 .border-primary\/20{
-  border-color: rgb(0 0 0/1);
+  border-color: rgba(161,174,229,.2);
 }
 .border-primary\/30{
   border-color: rgba(161,174,229,.3);

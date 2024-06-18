@@ -82,46 +82,47 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 				<div className="content-div grid grid-cols-1 md:grid-cols-2 gap-20">
 					<div className="opacity: 1; transform: translateY(0px) translateZ(0px);">
 						<div>
-							<label className="main-label g-bg-text-gradient g-text-fill">
+							<label className="main-label g-bg-text-gradient g-text-fill font-system tracking-[0.1px]">
 								AILayer Dataset Staking Event: <br></br>
 								The More You Stake,<br></br>
 								The More You Earn
 							</label>
-							<div className="btn-div mt-10 flex gap-8">
+							<div className="mt-10 flex gap-8">
 								<a>
-								<button className="bridge-btn mr-7 border border-primary/20 px-8 py-3 rounded-full relative a2">
+								<button className="border border-solid border-primary/20 px-8 py-3 rounded-full relative a2 font-system">
 									<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
-									Rule
+									<span>Rule</span>
 								</button>
 								</a>
-								<button className="bridge-btn border border-primary/20 px-8 py-3 rounded-full relative a2">
+								<button className="border border-solid border-primary/20 px-8 py-3 rounded-full relative a2 font-system">
 									<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
-									Guid
+									Guide
 								</button>
 							</div>
 							<div className="short-label">
-						<label >TVL</label>
+						<label className="text-primary/70 mb-1 font-system">TVL</label>
 						</div>
-						<div className="short-label" style={{marginTop: 20, fontSize: 47}}>
-							<label><strong>$ 695, 349, 059</strong></label>
+						<div className="my-4 relative font-system font-bold g-bg-text-gradient g-text-fill text-4xl lg:text-5xl tracking-[5px] lg:tracking-[10px] text-white">
+							<span>$</span>
+							<span>681,975,059</span>
 						</div>
-						<div className="short-label text-primary/70 mb-1" style={{marginTop: 50}}>
+						<div className="short-label text-primary/70 font-system" style={{marginTop: 50}}>
 							<label >Supported Assets</label>
 						</div>
-						<div className="flex flex-wrap -mx-2">
+						<div className="flex flex-wrap my-8 gap-4">
 							{
 								CoinsList.map(coin => (
 									< div className="tooltip">
 										<div className="tooltiptext">
 											{coin.name}
 										</div>
-										<img className="coin-img w-8 h-8 rounded-full" src={coin.img}/>
+										<img className="w-8 h-8 rounded-full" src={coin.img}/>
 									</div>
 								))
 							}
 						</div>
 
-						<div className="short-label">
+						<div className="short-label text-primary/70 font-system">
 							<label >Buff assets</label>
 						</div>
 
@@ -129,30 +130,30 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 							<div className="tooltiptext">
 								ainn
 							</div>
-							<img className="coin-img w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
+							<img className="w-8 h-8 rounded-full mt-6" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
 						</div>
 
-						<div className="flex flex-wrap -mx-2 mt-1">
+						<div className="flex flex-wrap  gap-4">
 							<div className="tooltip">
 								<div className="tooltiptext">
 									ordi
 								</div>
-								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
+								<img className="w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
 							</div>
 							<div className="tooltip">
 								<div className="tooltiptext">
 									rats
 								</div>
-								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
+								<img className="w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/rats.png"/>
 							</div>
 							<div className="tooltip">
 								<div className="tooltiptext">
 									sats
 								</div>
-								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
+								<img className="w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/sats.png"/>
 							</div>
 						</div>
-						<div className="flex flex-wrap -mx-2 mt-0">
+						<div className="flex flex-wrap  mt-0 mb-10">
 							<div className="tooltip">
 								<div className="tooltiptext">
 									depd
@@ -172,13 +173,13 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
 							</div>
 						</div>
-						<div className="exp-div mt-10 w-full rounded-lg bg-cover pb-5">
-							<a href="https://mainnet-explorer.ailayer.xyz/" className=" w-full">
-								<div className="p-3 rounded-full border-primary/10 inline-block border m-4" style={{borderColor: '#3d3c4c', marginLeft: 20, marginBottom: 0}}>
+						<div className="hidden pt-10 border-t border-solid border-primary/10 md:grid grid-cols-1 md:grid-cols-1 gap-4">
+							<a href="https://mainnet-explorer.ailayer.xyz/" className="rounded-xl border border-primary/10 p-4 bg-[url('https://stake.ailayer.xyz//images/bridge/bg2.png')] bg-cover">
+								<div className="p-3 rounded-full border-primary/10 inline-block border" style={{borderColor: '#3d3c4c', marginBottom: 0}}>
 									<img className="w-5 h-5" src="https://stake.ailayer.xyz/images/bridge/icon2.png"/>
 								</div>
-								<h3 className="text-lg font-bold mb-2 ml-4" >Explorer</h3>
-								<p className="text-sm text-primary ml-4" style={{color: 'rgb(161 174 229}'}}>Explore Your Journey</p>
+								<h3 className="text-lg font-bold mb-2 font-system">Explorer</h3>
+								<p className="text-sm text-primary font-system" style={{color: 'rgb(161 174 229}'}}>Explore Your Journey</p>
 							</a>
 						</div>
 						</div>

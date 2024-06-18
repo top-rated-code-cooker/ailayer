@@ -16,7 +16,7 @@ export default function Footer () {
                 </a>
                 <a href="https://ailayer.XYZ/brandkit" className="img-link">
                     <img className="" src="https://stake.ailayer.xyz/images/logo_white.png" />
-                    <span className="bandkit-span">brandkit</span>
+                    <span className="bandkit-span whitespace-nowrap">Brand-kit</span>
                 </a>
                 
             </div>

@@ -6,6 +6,7 @@ export default {
   theme: {
     fontFamily: {
       'hind': ['Hind'],
+      'system' : 'system-ui'
     },
     extend: {},
   },
