@@ -341,7 +341,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 													<div className="my-2">
 														<div className="text-primary/70 mb-1">Amount</div>
 														<div className="relative">
-															<input className="py-3 my-2 px-4 text-xl font-bold rounded-md w-full main-radius bg-[#030515]/50 outline-none disabled:cursor-not-allowed" placeholder="0" value={exchangeAmount} onChange={e=>setExchangeAmount(e.target.value)}/>
+															<input className="py-3 my-2 px-4 text-xl font-bold rounded-md w-full border border-primary/20 bg-[#030515]/50 outline-none disabled:cursor-not-allowed" placeholder="0" value={exchangeAmount} onChange={e=>setExchangeAmount(e.target.value)}/>
 															<div className="absolute right-4 top-6">
 																<div>
 																	<button className="flex items-center gap-2" id="headlessui-listbox-button-:r7r:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" onClick={()=>setCoinShow(!coinshow)}>
