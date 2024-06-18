@@ -229,3 +229,7 @@ html {
 .text-primary\/50{
   color: rgba(161,174,229,.5);
 }
+
+.bg-\[\#030515\]\/40{
+  background-color: rgba(3,5,21,.4);
+}
