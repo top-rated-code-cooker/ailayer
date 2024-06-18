@@ -77,6 +77,20 @@ body {
   }
 }
 
+.refer-modal::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    display: block;
+}
+
+.refer-modal::-webkit-scrollbar-thumb {
+  background: #b7c0e4;
+}
+
+.refer-modal::-webkit-scrollbar-track{
+  background: transparent;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
