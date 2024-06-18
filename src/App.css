@@ -64,6 +64,19 @@ body {
     background-repeat: no-repeat;
     background-position-y: 80px;
     color: #ecf0ff;
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      display: block;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: #b7c0e4;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background: black;
+  }
 }
 
 body::-webkit-scrollbar {

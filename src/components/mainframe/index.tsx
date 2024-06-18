@@ -77,8 +77,8 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 	  }
 	
 	return (
-		<div className="whole-border">
-			<div className="main-bridge pt-[150px] g-container">
+
+		<div className="main-bridge pt-[150px] g-container">
 				<div className="content-div">
 					<label className="main-label g-bg-text-gradient g-text-fill">
 						AlLayer Dataset Staking Event: <br></br>
@@ -533,6 +533,6 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 				</div>
 			</div>
 		</div>
-		</div>
+
 	);
 }

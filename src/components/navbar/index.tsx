@@ -339,7 +339,7 @@ export default function Navbar({
   // const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4">
+    <div className="fixed left-0 right-[5px] top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4">
       <div className="w-full">
         <header className="relative g-container mx-auto flex items-center justify-between py-3 lg:py-6">
           <a className="flex items-center space-x-2.5" href="/">

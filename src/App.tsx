@@ -73,7 +73,7 @@ function App() {
 	}
 
 	return (
-		<>
+		<div className="overflow-y-scroll max-h-[100vh]">
 			<Navbar
 				isConnected = {walletInfo.isConnected}
 				accountAddress = {walletInfo.address}
@@ -113,7 +113,7 @@ function App() {
 					/>
 				))}
 			</div>
-		</>
+		</div>
 	);
 }
 
