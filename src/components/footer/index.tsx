@@ -2,8 +2,8 @@ import "./footer.css";
 
 export default function Footer () {
     return (
-    <nav className="">
-        <div className="main-footer">
+    <div className="g-container">
+        <div className="main-footer py-12 border-\[\#A1AEE5\]/20">
             <div className="img-list">
                 <a href="https://twitter.com/AILayerXYZ" className="img-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" className="relative z-10 h-5 w-5 text-white"><path fill="currentColor" d="M18.205 2.25h3.308l-7.227 8.26 8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.045 4.126H5.078z"></path></svg>
@@ -22,6 +22,6 @@ export default function Footer () {
             </div>
         </div>
         
-    </nav>
+    </div>
     );
 }

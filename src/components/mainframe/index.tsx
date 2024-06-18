@@ -20,6 +20,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 	const [cryptoName, setCryptoName] = useState('false');
 	const [selectTab, setSelectTab] = useState('stake')
 	const [exchangeAmount, setExchangeAmount] = useState("");
+	const [confirmed, setConfirmed] = useState(true);
 	const [selectedCoin, setSelectedCoin] = useState({
 		name: 'BTC',
 		img: "https://stake.ailayer.xyz/images/token/btc.png"
@@ -375,14 +376,22 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 															</div>
 														</div>
 				
-															<div className="flex items-center gap-2 text-sm my-1">
+															{selectTab == "stake" && <div className="flex items-center gap-2 text-sm my-1">
 																<span className="text-primary">Balance:</span>
 																<span></span>
 																<img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
-															</div>
+															</div>}
+
+															{selectTab == "withdraw" && <div className="flex items-center gap-2 text-sm">
+																<span className="text-primary">Balance:</span>
+																<span>0</span>
+																<img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
+															</div>}
+
+															
 		
-														<div className="mt-7">
-															<div className="flex justify-between">
+														<div className={selectTab == "stake" ? "mt-7" : "mt-4"}>
+															{selectTab == "stake" && <div className="flex justify-between">
 																<h3 className="text-primary/70">Fee Rate
 																</h3>
 																<div className="flex items-center gap-1 text-sm hover:text-primary cursor-pointer">
@@ -390,27 +399,33 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
 																</div>
 															</div>
-															<div className="flex justify-between my-2"><h3 className="text-primary/70">Target Address</h3><span className="text-sm"></span>
-															</div>
-														
+															}
+															{selectTab == "stake" && <div className="flex justify-between my-2"><h3 className="text-primary/70">Target Address</h3><span className="text-sm"></span>
+															</div>}
+															{selectTab == "withdraw" && <div className="flex justify-between my-2"><h3 className="text-primary/70">Target Address</h3><span className="text-sm"></span>
+																</div>}
 															<div className="bg-primary/5 px-8 py-4 -mx-8 text-sm text-white/80">
 																<div className="flex justify-between">
 																	<div>You will Receive
 																	</div>
-																	<div className="text-primary/80"> BTC
+																	<div className="text-primary/80">{exchangeAmount} BTC
 																	</div>
 																</div>
 																<div className="flex justify-between my-1">
 																	<div>Estimated Time of Arrival
 																	</div>
-																	<div className="text-primary/80"> ≈60 minutes
-																	</div>
+																	{selectTab == "stake" &&<div className="text-primary/80"> ≈60 minutes
+																	</div>}
+																	{selectTab == "withdraw" &&<div className="text-primary/80"> ≈12 hours
+																		</div>}
 																</div>
 																<div className="flex justify-between my-1">
 																	<div>Fees
 																	</div>
-																	<div className="text-primary/80">Bridge Free(0 BTC)
-																	</div>
+																	{selectTab == "stake" && <div className="text-primary/80">Bridge Free(0 BTC)
+																	</div>}
+																	{selectTab == "withdraw" && <div className="text-primary/80">BTC
+																		</div>}
 																</div>
 															</div>
 														</div>
@@ -468,24 +483,27 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 											
 									</div>
 											}
-											<div className="p-8 -mx-8 overflow-visible bg-gradient-to-b from-primary/0 to-primary/5 ">
-											<div className="text-primary/50 text mb-3">Create or Join a team to start your Staking
-											</div>
-											<div className="flex flex-row flex-wrap justify-start items-center gap-4">
-												<button className="flex items-center gap-12 p-3 border border-primary/10 border-solid main-radius disabled:cursor-not-allowed" id="headlessui-listbox-button-:r6b:" type="button" aria-haspopup="listbox" aria-expanded="false" disabled data-headlessui-state="disabled">
-													<span>Join a Team
-													</span>
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
-													</svg>
-												</button>
-												<div className="flex flex-row justify-between items-center gap-4">
-													<input  disabled placeholder="Invite Code" className="border p-3 disabled:cursor-not-allowed outline-none bg-transparent rounded-lg border-primary/20" type="text"/>
-													<button disabled className="text-sharp p-3 main-radius disabled:cursor-not-allowed border border-primary/10 border-solid">
-														Join
-													</button>
+											{selectTab == "stake" &&
+												<div className="p-8 -mx-8 overflow-visible bg-gradient-to-b from-primary/0 to-primary/5 ">
+													<div className="text-primary/50 text mb-3">Create or Join a team to start your Staking
+													</div>
+													<div className="flex flex-row flex-wrap justify-start items-center gap-4">
+														<button className="flex items-center gap-12 p-3 border border-primary/10 border-solid main-radius disabled:cursor-not-allowed" id="headlessui-listbox-button-:r6b:" type="button" aria-haspopup="listbox" aria-expanded="false" disabled data-headlessui-state="disabled">
+															<span>Join a Team
+															</span>
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
+															</svg>
+														</button>
+														<div className="flex flex-row justify-between items-center gap-4">
+															<input  disabled placeholder="Invite Code" className="border p-3 disabled:cursor-not-allowed outline-none bg-transparent rounded-lg border-primary/20" type="text"/>
+															<button disabled className="text-sharp p-3 main-radius disabled:cursor-not-allowed border border-primary/10 border-solid">
+																Join
+															</button>
+														</div>
+													</div>
 												</div>
-											</div>
-											</div>
+											}
+											
 											{isConnected ?
 												(
 												<div className="flex justify-center mt-4">
@@ -495,17 +513,26 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 													</button>
 												</div>
 												):
-												<div className="mt-3 text-center font-bold text-red-400"> Please connect evm wallet and sign in.
-												</div>
+												<>
+												{selectTab == "stake" && <div className="mt-3 text-center font-bold text-red-400"> Please connect evm wallet and sign in.
+												</div>}
+												</>
 											}
-											<div className="flex justify-center my-5">
+											{selectTab == "stake" && <div className="flex justify-center my-4 mb-10">
 												<button
 													className="border border-solid border-primary/30 px-20 py-3 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed" >
 													<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"></img>
 													<span>Stake</span>
 												</button>
-											</div>
-											<div className="text-xs text-primary text-center mt-4 mb-5">Powered by Butternetwork</div>
+											</div>}
+											{selectTab == "withdraw" && <div className="flex justify-center my-10">
+												<button
+													className="border border-solid border-primary/30 px-20 py-3 rounded-full relative hover:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed" >
+													<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"></img>
+													<span>Withdraw</span>
+												</button>
+											</div>}
+											{/* <div className="text-xs text-primary text-center mt-4 mb-5">Powered by Butternetwork</div> */}
 										</div>
 										
 								</div>
@@ -516,7 +543,22 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 							<div className="flex flex-col justify-center items-center text-sm -mx-8 md:-mt-8">
 								<div className="py-2 text-primary/50 w-full px-8">Cross-chain history might being delayed a bit. Thanks for your patience
 								</div>
-								<div className="w-full px-8 flex items-center gap-2 text-primary" role="tablist" aria-orientation="horizontal"><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white " id="headlessui-tabs-tab-:rl0:" role="tab" type="button" aria-selected="true"  data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:rl2:">Confirmed</button><button className=" main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white" id="headlessui-tabs-tab-:rl1:" role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
+								<div className="w-full px-8 flex items-center gap-2 text-primary" role="tablist" aria-orientation="horizontal">
+									<button 
+										className=
+										{confirmed ? 
+										" main-radius bg-primary/20 outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 text-white cursor-pointer" 
+										: 
+										"main-radius bg-primary/20 outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 text-white cursor-pointer"} 
+										id="headlessui-tabs-tab-:rl0:"  aria-controls="headlessui-tabs-panel-:rl2:">Confirmed
+									</button>
+									<button className=
+									{confirmed ?
+										"main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 hl-selected:text-white cursor-pointer"
+										:
+										"main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50  text-white cursor-pointer"
+									}
+									 id="headlessui-tabs-tab-:rl1:" role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
 								</div>
 								<div className="w-full mt-2">
 									<div id="headlessui-tabs-panel-:rl2:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:rl0:">

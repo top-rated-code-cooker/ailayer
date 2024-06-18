@@ -155,6 +155,10 @@ html {
   background-color: rgba(161,174,229,.1);
 }
 
+.bg-primary\/20{
+  background-color: rgba(161,174,229,.2);
+}
+
 .text-primary\/70{
   color:rgba(161,174,229,.7);
 }
@@ -175,7 +179,6 @@ html {
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 
 .tooltiptext {

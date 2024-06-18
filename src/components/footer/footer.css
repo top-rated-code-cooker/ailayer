@@ -3,7 +3,7 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    margin: 3rem 0;
+    
 }
 
 .img-list {
@@ -38,4 +38,16 @@
     position: absolute;
     top: -8px;
     left : 32px;
+}
+
+.border-\[\#A1AEE5\]\/20{
+    border-color: rgba(161,174,229,.2);
+}
+
+.disabled\:opacity-50{
+    opacity: 0.5;
+}
+
+.disabled\:cursor-not-allowed{
+    cursor: disabled;
 }
