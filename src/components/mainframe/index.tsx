@@ -267,8 +267,8 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 													</div>
 												</div>
 												
-												<div className="main-radius">
-													<img src="https://stake.ailayer.xyz/images/bridge/icon-switch.png" className="w-8 h-8 p-1 " alt="" data-nsfw-filter-status="sfw" style={{visibility: 'visible'}}/>
+												<div className="">
+													<img src="https://stake.ailayer.xyz/images/bridge/icon-switch.png" className="w-8 h-8 p-1 rounded-lg border border-primary/20" alt="" data-nsfw-filter-status="sfw" style={{visibility: 'visible'}}/>
 												</div>
 												<div className="main-radius flex-1 border border-primary/30 p-3 bg-[#030515]/50 rounded-lg flex items-center gap-2 text-sm">
 													<img src="https://stake.ailayer.xyz/images/chain/ainn.png" alt="" className="w-8 h-8 rounded-full" data-nsfw-filter-status="sfw" style={{visibility: 'visible'}}/>
@@ -374,12 +374,13 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 																</div>
 															</div>
 														</div>
-														<div className="my-1">
+				
 															<div className="flex items-center gap-2 text-sm">
-																<span className="text-primary/70">Balance:</span>
-																<span></span><img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
+																<span className="text-primary">Balance:</span>
+																<span></span>
+																<img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
 															</div>
-														</div>
+		
 														<div className="mt-4">
 															<div className="flex justify-between">
 																<h3 className="text-primary/70">Fee Rate
