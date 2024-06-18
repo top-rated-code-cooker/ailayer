@@ -192,9 +192,9 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 								className =
 								{
 									selectTab == "stake" ?
-									"h1-selected outline-none relative py-3 px-8 hover:g-tab-bg-gradient hover:text-white"
+									"h1-selected outline-none relative py-3 px-8 hover:h1-selected hover:text-white"
 									:
-									"outline-none relative py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white"
+									"outline-none relative py-3 px-8 hl-selected:g-tab-bg-gradient text-primary\/70 hover:g-tab-bg-gradient hl-selected:text-white  panelTab"
 								}
 									onClick={() => selectTabState("stake")}>Stake</button>
 							<button  
@@ -203,7 +203,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 									selectTab == "withdraw" ?
 									"h1-selected outline-none py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary"
 									:
-									"outline-none py-3 px-8 hl-selected:g-tab-bg-gradient hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary"
+									"outline-none py-3 px-8 hl-selected:g-tab-bg-gradient text-primary\/70 hover:g-tab-bg-gradient hl-selected:text-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-none disabled:text-primary panelTab"
 								}
 								onClick={() => selectTabState("withdraw")}>Withdraw</button>
 							<button 
@@ -212,7 +212,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 									selectTab == "history" ?
 									"h1-selected outline-none py-3 px-8 flex items-center gap-1 absolute top-0.5 right-0" 
 									:
-									"outline-none py-3 px-8 flex items-center gap-1 absolute top-0.5 right-0"
+									"outline-none py-3 px-8 flex items-center gap-1 text-primary\/70  absolute top-0.5 right-0"
 								}
 									 role="tab" type="button" aria-selected="false"  data-headlessui-state="" aria-controls="headlessui-tabs-panel-:R3l9nnicda:" onClick={() => selectTabState("history")}><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="w-4 h-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg><span className="text-sm">History</span>
 									</button>

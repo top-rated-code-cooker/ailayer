@@ -547,6 +547,6 @@ aside.sidenav {
 .coin-div {
   border: 1px solid rgba(161, 174, 229, .3);
   border-radius: 10px;
-  font-family: 'none';
-  font-size: 20px;
+  font-family: 'system-ui';
+  font-size: 16px;
 }

@@ -147,10 +147,6 @@ html {
     -webkit-text-fill-color: transparent;
 }
 
-.h1-selected{
-  background: radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
-}
-
 .bg-\[\#A1AEE5\]\/5{
   background-color: rgba(161,174,229,.05);
 }
@@ -206,4 +202,11 @@ html {
   background-size: cover;
   background-position-y: 40px;
   background-attachment: scroll;
+}
+.h1-selected{
+  background: radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
+}
+.panelTab:hover{
+  background: radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
+  color:white;
 }
