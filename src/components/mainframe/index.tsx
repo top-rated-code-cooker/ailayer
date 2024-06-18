@@ -219,7 +219,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 						</div>
 						
 						<div>
-							<div style={{backgroundColor: 'rgba(3, 5, 21, .5)'}} className="pt-2 px-2 md:pt-8 md:px-8 g-tab-bg-gradient2" id="headlessui-tabs-panel-:R1l9nnicda:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:R1d9nnicda:">
+							<div className="pt-2 px-2 md:pt-8 md:px-8 g-tab-bg-gradient2" id="headlessui-tabs-panel-:R1l9nnicda:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:R1d9nnicda:">
 								{selectTab != "history" && 
 								<div style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
 									<div className="flex flex-col justify-between">
@@ -375,13 +375,13 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 															</div>
 														</div>
 				
-															<div className="flex items-center gap-2 text-sm">
+															<div className="flex items-center gap-2 text-sm my-1">
 																<span className="text-primary">Balance:</span>
 																<span></span>
 																<img src={selectedCoin.img} className="w-4 h-4 rounded-full" alt=""/>
 															</div>
 		
-														<div className="mt-4">
+														<div className="mt-7">
 															<div className="flex justify-between">
 																<h3 className="text-primary/70">Fee Rate
 																</h3>
@@ -468,19 +468,23 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 											
 									</div>
 											}
-											<div className="text-primary/70 mb-1 mt-10">Create or Join a team to start your Staking
+											<div className="p-8 -mx-8 overflow-visible bg-gradient-to-b from-primary/0 to-primary/5 ">
+											<div className="text-primary/50 text mb-3">Create or Join a team to start your Staking
 											</div>
-											<div style={{display: 'inline-flex'}} className="flex flex-row flex-wrap justify-start items-center gap-4">
-												<button className="flex items-center gap-12 p-3 main-radius disabled:cursor-not-allowed" id="headlessui-listbox-button-:r6b:" type="button" aria-haspopup="listbox" aria-expanded="false" disabled data-headlessui-state="disabled">
+											<div className="flex flex-row flex-wrap justify-start items-center gap-4">
+												<button className="flex items-center gap-12 p-3 border border-primary/10 border-solid main-radius disabled:cursor-not-allowed" id="headlessui-listbox-button-:r6b:" type="button" aria-haspopup="listbox" aria-expanded="false" disabled data-headlessui-state="disabled">
 													<span>Join a Team
 													</span>
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 text-primary"><polyline points="6 9 12 15 18 9"></polyline>
 													</svg>
 												</button>
-												<input style={{width: '45%'}} disabled placeholder="Invite Code" className="border p-3 disabled:cursor-not-allowed outline-none bg-transparent main-radius" type="text"/>
-												<button disabled className="text-sharp p-3 main-radius disabled:cursor-not-allowed">
-													Join
-												</button>
+												<div className="flex flex-row justify-between items-center gap-4">
+													<input  disabled placeholder="Invite Code" className="border p-3 disabled:cursor-not-allowed outline-none bg-transparent rounded-lg border-primary/20" type="text"/>
+													<button disabled className="text-sharp p-3 main-radius disabled:cursor-not-allowed border border-primary/10 border-solid">
+														Join
+													</button>
+												</div>
+											</div>
 											</div>
 											{isConnected ?
 												(

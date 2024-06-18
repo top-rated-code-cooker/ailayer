@@ -210,3 +210,19 @@ html {
   background: radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
   color:white;
 }
+.g-tab-bg-gradient2{
+  background: linear-gradient(0deg,rgba(3,5,21,.5),rgba(3,5,21,.5)),radial-gradient(73.65% 73.65% at 50% 0,rgba(161,174,229,.25) 0,rgba(161,174,229,.083) 61.8%,rgba(161,174,229,0) 100%);
+}
+.to-primary\/5{
+  --tw-gradient-to: rgba(161,174,229,.05) var(--tw-gradient-to-position);
+}
+
+.from-primary\/0{
+  --tw-gradient-from: rgba(161,174,229,0) var(--tw-gradient-from-position);
+  --tw-gradient-stops:   var(--tw-gradient-from), var(--tw-gradient-to);
+
+}
+
+.text-primary\/50{
+  color: rgba(161,174,229,.5);
+}
