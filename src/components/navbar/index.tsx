@@ -346,17 +346,17 @@ export default function Navbar({
             <img src="text-logo.png" width="130" height="35" alt="Logo"/>
           </a>
           <div className="hidden items-center space-x-5 rounded-full border px-6 py-3 lg:flex xl:space-x-7 xl:px-8 xl:py-4 border-primary/10 ">
-              <a href="https://ailayer.xyz" target="_blank" className="font-hind text-[16.5px] g-text-fill g-bg-text-gradient relative">Home</a>
+              <a href="https://ailayer.xyz" target="_blank" className="font-system text-[16px] g-text-fill g-bg-text-gradient relative">Home</a>
                     <div className="h-1 w-1 rounded-full bg-primary/70">
                     </div>
-              <a href="https://social.ailayer.xyz" target="_blank" className="font-hind g-text-fill g-bg-text-gradient relative text-[16.5px]">
+              <a href="https://social.ailayer.xyz" target="_blank" className="font-system g-text-fill g-bg-text-gradient relative text-[16.5px]">
                 <span className="g-text-fill g-bg-text-gradient absolute -right-5 -top-4 text-[12px]">Epoch 2</span>
                 Social Campaign</a><div className="h-1 w-1 rounded-full bg-primary/70"></div>
               <a className="font-hind relative text-[16.5px]" href="/stake">
-                <span className="g-text-fill g-bg-text-gradient">Staking Campaign</span></a>
+                <span className="g-text-fill g-bg-text-gradient font-system">Staking Campaign</span></a>
               <div className="h-1 w-1 rounded-full bg-primary/70"></div>
               <a className="font-hind relative text-[16.5px]" href="/">
-                <span className="g-text-fill g-bg-text-gradient">Stake</span>
+                <span className="g-text-fill g-bg-text-gradient font-system">Stake</span>
               </a>
           </div>
           {/* <div className="main-nav">
