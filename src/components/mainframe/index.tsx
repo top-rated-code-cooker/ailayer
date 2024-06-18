@@ -185,8 +185,8 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 						</div>
 					</div>
 					<div className="opacity: 1; transform: translateY(0px) translateZ(0px);">
-					<div className="content-div" style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
-					<div className=" coin-div rounded-x1">
+					<div className="content-div " style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
+					<div className=" coin-div border border-solid border-primary/10 rounded-x1">
 						<div className="bg-[#030515]/40 relative rounded-t-xl">
 							<button 
 								className =
