@@ -201,3 +201,9 @@ html {
 .text-primary{
   color: rgb(161 174 229/var(--tw-text-opacity))
 }
+.bg-set{
+  background-image: url(/home-bg2.png);
+  background-size: cover;
+  background-position-y: 40px;
+  background-attachment: scroll;
+}

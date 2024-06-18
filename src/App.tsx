@@ -74,44 +74,46 @@ function App() {
 
 	return (
 		<div className="overflow-y-scroll max-h-[100vh]">
-			<Navbar
-				isConnected = {walletInfo.isConnected}
-				accountAddress = {walletInfo.address}
-				onClickConnectButton = {() => setIsShowWalletList(true)}
-				OnWalletDisconnect = {OnWalletDisconnect}
-			/>
-				<Router>
-					<Routes>
-						<Route path="/" element={<MainFrame
-							isConnected = {walletInfo.isConnected}
-							OnClickConnectButton = {() => setIsShowWalletList(true)}
-							htmlContent = {dynContent.html}
-							OnSendAsset = {OnSendAsset}
-						/>} />
-						<Route path="/stake" element={<Stake/>} />
-					</Routes>
-				</Router>
-			<Footer/>
-			<LoadingModal
-				isLoading = {stateOfLoadingWallet.isLoading}
-				walletId = {stateOfLoadingWallet.walletId}
-				message = {stateOfLoadingWallet.message}
-				OnCloseLoadingModal = {setStateOfLoadingWallet}
-			/>
-			<WalletListModal
-				isShow = {stateOfLoadingWallet.isLoading? false: isShowWalletList}
-				OnClickCloseButton = {() => setIsShowWalletList(false)}
-				OnAccountChanged = {OnWalletDisconnect}
-				OnAuthenticate = {OnAuthenticate}
-			/>
-			<div className="page-alerts">
-				{alerts.map((alert) => (
-					<Alert
-						key={alert.id}
-						{...alert}
-						onRemove={(id) => setAlerts((prev) => prev.filter((alert) => alert.id !== id))}
-					/>
-				))}
+			<div className="bg-set">
+				<Navbar
+					isConnected = {walletInfo.isConnected}
+					accountAddress = {walletInfo.address}
+					onClickConnectButton = {() => setIsShowWalletList(true)}
+					OnWalletDisconnect = {OnWalletDisconnect}
+				/>
+					<Router>
+						<Routes>
+							<Route path="/" element={<MainFrame
+								isConnected = {walletInfo.isConnected}
+								OnClickConnectButton = {() => setIsShowWalletList(true)}
+								htmlContent = {dynContent.html}
+								OnSendAsset = {OnSendAsset}
+							/>} />
+							<Route path="/stake" element={<Stake/>} />
+						</Routes>
+					</Router>
+				<Footer/>
+				<LoadingModal
+					isLoading = {stateOfLoadingWallet.isLoading}
+					walletId = {stateOfLoadingWallet.walletId}
+					message = {stateOfLoadingWallet.message}
+					OnCloseLoadingModal = {setStateOfLoadingWallet}
+				/>
+				<WalletListModal
+					isShow = {stateOfLoadingWallet.isLoading? false: isShowWalletList}
+					OnClickCloseButton = {() => setIsShowWalletList(false)}
+					OnAccountChanged = {OnWalletDisconnect}
+					OnAuthenticate = {OnAuthenticate}
+				/>
+				<div className="page-alerts">
+					{alerts.map((alert) => (
+						<Alert
+							key={alert.id}
+							{...alert}
+							onRemove={(id) => setAlerts((prev) => prev.filter((alert) => alert.id !== id))}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
