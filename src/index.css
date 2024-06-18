@@ -55,11 +55,35 @@
   font-display: swap
 }
 
+@font-face {
+  font-family: ui-sans-serif;
+  src: url(./assets/fonts/SFUIText-Medium.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ui-sans-serif;
+  src: url(./assets/fonts/SFUIText-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ui-sans-serif;
+  src: url(./assets/fonts/Golos-UI_VF.ttf);
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
-  font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 .dark-theme .dialog {

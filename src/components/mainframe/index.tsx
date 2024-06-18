@@ -79,108 +79,112 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 	return (
 
 		<div className="main-bridge pt-[150px] g-container">
-				<div className="content-div">
-					<label className="main-label g-bg-text-gradient g-text-fill">
-						AlLayer Dataset Staking Event: <br></br>
-						The More You Stake,<br></br>
-						The More You Earn
-					</label>
-					<div className="btn-div mt-10 flex gap-8">
-						<a>
-						<button className="bridge-btn mr-7 border border-primary/20 px-8 py-3 rounded-full relative a2">
-							<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
-							Rule
-						</button>
-						</a>
-						<button className="bridge-btn border border-primary/20 px-8 py-3 rounded-full relative a2">
-							<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
-							Guid
-						</button>
-					</div>
-					<div className="short-label">
+				<div className="content-div grid grid-cols-1 md:grid-cols-2 gap-20">
+					<div className="opacity: 1; transform: translateY(0px) translateZ(0px);">
+						<div>
+							<label className="main-label g-bg-text-gradient g-text-fill">
+								AILayer Dataset Staking Event: <br></br>
+								The More You Stake,<br></br>
+								The More You Earn
+							</label>
+							<div className="btn-div mt-10 flex gap-8">
+								<a>
+								<button className="bridge-btn mr-7 border border-primary/20 px-8 py-3 rounded-full relative a2">
+									<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
+									Rule
+								</button>
+								</a>
+								<button className="bridge-btn border border-primary/20 px-8 py-3 rounded-full relative a2">
+									<img src="button-inner-shadow.png" className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-full object-fill"/>
+									Guid
+								</button>
+							</div>
+							<div className="short-label">
 						<label >TVL</label>
-					</div>
-					<div className="short-label" style={{marginTop: 20, fontSize: 47}}>
-						<label><strong>$ 695, 349, 059</strong></label>
-					</div>
-					<div className="short-label text-primary/70 mb-1" style={{marginTop: 50}}>
-						<label >Supported Assets</label>
-					</div>
-					<div className="flex flex-wrap -mx-2">
-						{
-							CoinsList.map(coin => (
-								< div className="tooltip">
-									<div className="tooltiptext">
-										{coin.name}
+						</div>
+						<div className="short-label" style={{marginTop: 20, fontSize: 47}}>
+							<label><strong>$ 695, 349, 059</strong></label>
+						</div>
+						<div className="short-label text-primary/70 mb-1" style={{marginTop: 50}}>
+							<label >Supported Assets</label>
+						</div>
+						<div className="flex flex-wrap -mx-2">
+							{
+								CoinsList.map(coin => (
+									< div className="tooltip">
+										<div className="tooltiptext">
+											{coin.name}
+										</div>
+										<img className="coin-img w-8 h-8 rounded-full" src={coin.img}/>
 									</div>
-									<img className="coin-img w-8 h-8 rounded-full" src={coin.img}/>
+								))
+							}
+						</div>
+
+						<div className="short-label">
+							<label >Buff assets</label>
+						</div>
+
+						< div className="tooltip">
+							<div className="tooltiptext">
+								ainn
+							</div>
+							<img className="coin-img w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
+						</div>
+
+						<div className="flex flex-wrap -mx-2 mt-1">
+							<div className="tooltip">
+								<div className="tooltiptext">
+									ordi
 								</div>
-							))
-						}
-					</div>
-
-					<div className="short-label">
-						<label >Buff assets</label>
-					</div>
-
-					< div className="tooltip">
-						<div className="tooltiptext">
-							ainn
-						</div>
-						<img className="coin-img w-8 h-8 rounded-full" src="https://stake.ailayer.xyz/images/token/ainn.png"/>
-					</div>
-
-					<div className="flex flex-wrap -mx-2 mt-1">
-						<div className="tooltip">
-							<div className="tooltiptext">
-								ordi
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
 							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/ordi.png"/>
-						</div>
-						<div className="tooltip">
-							<div className="tooltiptext">
-								rats
+							<div className="tooltip">
+								<div className="tooltiptext">
+									rats
+								</div>
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
 							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/rats.png"/>
-						</div>
-						<div className="tooltip">
-							<div className="tooltiptext">
-								sats
+							<div className="tooltip">
+								<div className="tooltiptext">
+									sats
+								</div>
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
 							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/sats.png"/>
 						</div>
-					</div>
-					<div className="flex flex-wrap -mx-2 mt-0">
-						<div className="tooltip">
-							<div className="tooltiptext">
-								depd
+						<div className="flex flex-wrap -mx-2 mt-0">
+							<div className="tooltip">
+								<div className="tooltiptext">
+									depd
+								</div>
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depd.png"/>
 							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/depd.png"/>
+							<div className="tooltip">
+								<div className="tooltiptext">
+									mmss
+								</div>
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mmss.png"/>
+							</div>
+							<div className="tooltip">
+								<div className="tooltiptext">
+									play
+								</div>
+								<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
+							</div>
 						</div>
-						<div className="tooltip">
-							<div className="tooltiptext">
-								mmss
-							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/mmss.png"/>
+						<div className="exp-div mt-10 w-full rounded-lg bg-cover pb-5">
+							<a href="https://mainnet-explorer.ailayer.xyz/" className=" w-full">
+								<div className="p-3 rounded-full border-primary/10 inline-block border m-4" style={{borderColor: '#3d3c4c', marginLeft: 20, marginBottom: 0}}>
+									<img className="w-5 h-5" src="https://stake.ailayer.xyz/images/bridge/icon2.png"/>
+								</div>
+								<h3 className="text-lg font-bold mb-2 ml-4" >Explorer</h3>
+								<p className="text-sm text-primary ml-4" style={{color: 'rgb(161 174 229}'}}>Explore Your Journey</p>
+							</a>
 						</div>
-						<div className="tooltip">
-							<div className="tooltiptext">
-								play
-							</div>
-							<img className="coin-img" src="https://stake.ailayer.xyz/images/token/play.png"/>
 						</div>
 					</div>
-					<div className="exp-div mt-10 w-full rounded-lg bg-cover pb-5">
-						<a href="https://mainnet-explorer.ailayer.xyz/" className=" w-full">
-							<div className="p-3 rounded-full border-primary/10 inline-block border m-4" style={{borderColor: '#3d3c4c', marginLeft: 20, marginBottom: 0}}>
-								<img className="w-5 h-5" src="https://stake.ailayer.xyz/images/bridge/icon2.png"/>
-							</div>
-							<h3 className="text-lg font-bold mb-2 ml-4" >Explorer</h3>
-							<p className="text-sm text-primary ml-4" style={{color: 'rgb(161 174 229}'}}>Explore Your Journey</p>
-						</a>
-					</div>
-				</div>
-				<div className="content-div" style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
+					<div className="opacity: 1; transform: translateY(0px) translateZ(0px);">
+					<div className="content-div" style={{opacity: 1, transform: 'translateY(0px) translateZ(0px)'}}>
 					<div className=" coin-div rounded-x1">
 						<div className="bg-[#030515]/40 relative rounded-t-xl">
 							<button 
@@ -531,6 +535,12 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 						
 					</div>
 				</div>
+					</div>
+					
+					
+					
+				</div>
+			
 			</div>
 		</div>
 
