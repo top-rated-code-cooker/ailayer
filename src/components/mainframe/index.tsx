@@ -1,5 +1,5 @@
 import "./mainframe.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CoinsList } from "./coinlist";
 interface  MainFrameProps {
 	isConnected: boolean;
@@ -25,6 +25,109 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 		name: 'BTC',
 		img: "https://stake.ailayer.xyz/images/token/btc.png"
 	})
+	const [TVL, setTVL] = useState(681975059);
+	const defaultTVL = 683975059;
+	const [currentNumber, setCurrentNumber] = useState(0);
+	const [feeRate, setFeeRate] = useState(0);
+	const defaultFeeRate = 13;
+
+	useEffect(()=>{
+		const randomTVL = Math.floor(Math.random() * (defaultTVL - 680155059)) + 680155059;
+		setTVL(randomTVL);
+	},[])
+
+	useEffect(()=>{
+		const randomfeeRate = Math.floor(Math.random() * (defaultFeeRate - 10)) + 10;
+		setFeeRate(randomfeeRate);
+	},[])
+
+	useEffect(() => {
+		const delay = 3000; // 3 seconds in milliseconds
+	  
+		const timeout = setTimeout(() => {
+		  const randomTVL = Math.floor(Math.random() * (defaultTVL - 680155059)) + 680155059;
+		  setTVL(randomTVL);
+		}, delay);
+	  
+		return () => clearTimeout(timeout);
+	  }, [defaultTVL]);
+
+	useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 1);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.9); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 10);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.9); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 100);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.9); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 1000);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.9); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 10000);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.9); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 100000);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.5); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (currentNumber < TVL) {
+        setCurrentNumber(prevNumber => prevNumber + 1000000);
+      } else {
+        clearTimeout(interval);
+      }
+    },  0.5); // Adjust the interval for speed
+    return () => clearTimeout(interval);
+  }, [currentNumber, TVL]);
 
 	function changeView(): void {
 		// Implementation here
@@ -105,7 +208,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 						</div>
 						<div className="my-4 relative font-system font-bold g-bg-text-gradient g-text-fill text-4xl lg:text-5xl tracking-[5px] lg:tracking-[10px] text-white">
 							<span>$</span>
-							<span>681,975,059</span>
+							<span>{currentNumber.toLocaleString()}</span>
 						</div>
 						<div className="short-label text-primary/70 font-system mt-10">
 							<label >Supported Assets</label>
@@ -391,7 +494,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 																<h3 className="text-primary/70">Fee Rate
 																</h3>
 																<div className="flex items-center gap-1 text-sm hover:text-primary cursor-pointer">
-																	<span>16 sats/vByte</span>
+																	<span>{feeRate} sats/vByte</span>
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
 																</div>
 															</div>
@@ -568,9 +671,6 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 									</div>
 									<span aria-hidden="true" id="headlessui-tabs-panel-:rl3:" role="tabpanel"  aria-labelledby="headlessui-tabs-tab-:rl1:" ></span>
 								</div>
-								
-							
-							
 							</div>
 							: ""}
 						</div>
