@@ -59,7 +59,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.9); // Adjust the interval for speed
+    },  0.01); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -70,7 +70,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.9); // Adjust the interval for speed
+    },  0.1); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -81,7 +81,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.9); // Adjust the interval for speed
+    },  0.2); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -92,7 +92,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.9); // Adjust the interval for speed
+    },  0.3); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -103,7 +103,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.9); // Adjust the interval for speed
+    },  0.4); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -114,7 +114,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.5); // Adjust the interval for speed
+    },  1); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
@@ -125,7 +125,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  0.5); // Adjust the interval for speed
+    },  0.9); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
