@@ -114,7 +114,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
       } else {
         clearTimeout(interval);
       }
-    },  1); // Adjust the interval for speed
+    },  0.9); // Adjust the interval for speed
     return () => clearTimeout(interval);
   }, [currentNumber, TVL]);
 
