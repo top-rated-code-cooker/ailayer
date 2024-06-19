@@ -346,7 +346,7 @@ export default function Navbar({
             <img src="text-logo.png" width="130" height="35" alt="Logo"/>
           </a>
           <div className="hidden items-center space-x-5 rounded-full border px-6 py-3 lg:flex xl:space-x-7 xl:px-8 xl:py-4 border-primary/10 ">
-              <a href="https://ailayer.xyz" target="_blank" className="font-system text-[16px] g-text-fill g-bg-text-gradient relative">Home</a>
+              <a href="/" target="_blank" className="font-system text-[16px] g-text-fill g-bg-text-gradient relative">Home</a>
                     <div className="h-1 w-1 rounded-full bg-primary/70">
                     </div>
               <a href="https://social.ailayer.xyz" target="_blank" className="font-system g-text-fill g-bg-text-gradient relative text-[16px]">

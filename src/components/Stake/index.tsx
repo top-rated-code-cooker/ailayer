@@ -59,7 +59,7 @@ function Stake(){
                         <div className="bg-cover bg-[url('https://stake.ailayer.xyz/images/stake/bg_left.png')] p-8 lg:p-10 border-primary/10 border border-solid rounded-xl">
                             <div className="flex justify-between">
                                 <div className="text-primary text-xl">My Staked Tokens
-                                </div><a href="/mainframe"><button className="text-primary text-md flex justify-center items-center gap-2">Stake<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 192 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg></button></a>
+                                </div><a href="/"><button className="text-primary text-md flex justify-center items-center gap-2">Stake<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 192 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg></button></a>
                             </div>
                             <div className="flex justify-start items-center gap-3 my-5"><img src="https://stake.ailayer.xyz/images/token/btc.png" className="w-10 h-10 rounded-full"/>
                             <div className=" text-4xl font-semibold text-[#ECF0FF]">-- BTC
