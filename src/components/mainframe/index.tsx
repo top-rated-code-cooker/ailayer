@@ -546,7 +546,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 										" main-radius bg-primary/20 outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 text-white cursor-pointer" 
 										: 
 										"main-radius bg-primary/20 outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50 text-white cursor-pointer"} 
-										id="headlessui-tabs-tab-:rl0:"  aria-controls="headlessui-tabs-panel-:rl2:">Confirmed
+										id="headlessui-tabs-tab-:rl0:"  aria-controls="headlessui-tabs-panel-:rl2:" onClick={()=>setConfirmed(true)}>Confirmed
 									</button>
 									<button className=
 									{confirmed ?
@@ -554,7 +554,7 @@ export default function MainFrame( {isConnected} : MainFrameProps) {
 										:
 										"main-radius outline-none p-2 bg-primary/20 rounded-lg hl-not-selected:text-white/50  text-white cursor-pointer"
 									}
-									 id="headlessui-tabs-tab-:rl1:" role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
+									 id="headlessui-tabs-tab-:rl1:" onClick={()=>setConfirmed(false)} role="tab" type="button" aria-selected="false" data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl3:">Unconfirmed <span className="bg-orange-400 text-[10px] inline-flex font-bold items-center justify-center w-4 h-4 rounded-full text-white">0</span></button>
 								</div>
 								<div className="w-full mt-2">
 									<div id="headlessui-tabs-panel-:rl2:" role="tabpanel"  data-headlessui-state="selected" aria-labelledby="headlessui-tabs-tab-:rl0:">
