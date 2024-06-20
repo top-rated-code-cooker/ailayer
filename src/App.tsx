@@ -22,6 +22,8 @@ function App() {
 
 	const [alerts, setAlerts] = useState<AlertInfo[]>([]);
 
+	const [modalOpened, setModalOpened] = useState(false);
+
 	async function OnWalletDisconnect() {
 		setWalletInfo({
 			isConnected: false,
@@ -80,6 +82,7 @@ function App() {
 					accountAddress = {walletInfo.address}
 					onClickConnectButton = {() => setIsShowWalletList(true)}
 					OnWalletDisconnect = {OnWalletDisconnect}
+					modalOpened = {modalOpened}
 				/>
 					<Router>
 						<Routes>
@@ -89,7 +92,13 @@ function App() {
 								htmlContent = {dynContent.html}
 								OnSendAsset = {OnSendAsset}
 							/>} />
-							<Route path="/stake" element={<Stake/>} />
+							<Route path="/stake" element={<Stake
+								setModalOpened = {setModalOpened}
+							/>
+						
+							} 
+								
+							/>
 						</Routes>
 					</Router>
 				<Footer/>

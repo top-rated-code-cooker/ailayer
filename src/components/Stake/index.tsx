@@ -4,7 +4,11 @@ import "./stake.css"
 import Modal from 'react-modal';
 import { useState } from "react";
 
-function Stake(){
+interface  StakeProps {
+    setModalOpened: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Stake( { setModalOpened} : StakeProps){
    
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [cardModalIsOpen, setCardModalIsOpen] = useState(false);
@@ -19,11 +23,13 @@ function Stake(){
 
     const openModal = () => {
         setModalIsOpen(true);
+        setModalOpened(true);
         console.log('opening modal')
     };
 
     const openCardModal = () => {
         setCardModalIsOpen(true);
+        setModalOpened(true);
         console.log('opening modal')
     };
 

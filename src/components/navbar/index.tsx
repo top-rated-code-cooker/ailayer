@@ -328,6 +328,7 @@ interface NavbarProps {
   accountAddress: string;
   onClickConnectButton: () => void;
   OnWalletDisconnect: () => void;
+  modalOpened: boolean;
 }
 
 export default function Navbar({
@@ -335,11 +336,18 @@ export default function Navbar({
   accountAddress,
   onClickConnectButton,
   OnWalletDisconnect,
+  modalOpened
 }: NavbarProps) {
   // const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="fixed left-0 right-[5px] top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4">
+    <div className=
+    {
+      modalOpened ?
+    "left-0 right-[5px] top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4"
+      :
+    "fixed left-0 right-[5px] top-0 z-30 flex items-center border-b-2 border-primary/5 text-primary backdrop-blur-2xl lg:bg-transparent px-4"
+    }>
       <div className="w-full">
         <header className="relative g-container mx-auto flex items-center justify-between py-3 lg:py-6">
           <a className="flex items-center space-x-2.5" href="/">
